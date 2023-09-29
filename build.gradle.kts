@@ -1,14 +1,13 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
-// TODO TOML
 plugins {
-    id("org.springframework.boot") version "3.1.4"
-    id("io.spring.dependency-management") version "1.1.3"
-    kotlin("jvm") version "1.8.22"
-    kotlin("plugin.spring") version "1.8.22"
+    kotlin("jvm").version(libs.versions.kotlin.asProvider().get())
+    kotlin("plugin.spring").version(libs.versions.kotlin.asProvider().get())
+    alias(libs.plugins.spring.boot)
+    alias(libs.plugins.spring.dependencyManagement)
 }
 
-group = "se.yverling.lab"
+group = "se.yverling.lab.springboot"
 version = "0.0.1-SNAPSHOT"
 
 java {
@@ -20,13 +19,13 @@ repositories {
 }
 
 dependencies {
-    implementation("org.springframework.boot:spring-boot-starter-web")
-    implementation("org.springframework.boot:spring-boot-starter-jdbc")
-    implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
-    implementation("org.jetbrains.kotlin:kotlin-reflect")
-    runtimeOnly("org.postgresql:postgresql")
+    implementation(libs.spring.boot.starter.web)
+    implementation(libs.spring.boot.starter.jdbc)
+    implementation(libs.jackson.module.kotlin)
+    implementation(libs.kotlin.reflect)
+    runtimeOnly(libs.postgresql)
 
-    testImplementation("org.springframework.boot:spring-boot-starter-test")
+    testImplementation(libs.spring.boot.starter.test)
 }
 
 tasks.withType<KotlinCompile> {

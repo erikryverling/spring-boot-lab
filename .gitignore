@@ -4,3 +4,7 @@ build/
 
 # Spring boot credentials
 application.properties
+
+# Intellij IDEA project files
+*.iml
+*idea

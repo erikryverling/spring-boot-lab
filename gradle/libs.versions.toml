@@ -1,0 +1,27 @@
+[versions]
+
+kotlin = "1.8.22"
+spring-boot = "3.1.4"
+spring-dependencyManagement = "1.1.3"
+jacksson = "2.15.2"
+postgresql = "42.6.0"
+
+kotlin-serialization = "1.8.0"
+logback-classic = "1.4.11"
+slf4j = "2.0.9"
+
+[plugins]
+spring-boot = { id = "org.springframework.boot", version.ref = "spring-boot" }
+spring-dependencyManagement = { id = "io.spring.dependency-management", version.ref = "spring-dependencyManagement" }
+
+
+[libraries]
+spring-boot-starter-web = { module = "org.springframework.boot:spring-boot-starter-web", version.ref = "spring-boot" }
+spring-boot-starter-jdbc = { module = "org.springframework.boot:spring-boot-starter-jdbc", version.ref = "spring-boot" }
+jackson-module-kotlin = { module = "com.fasterxml.jackson.module:jackson-module-kotlin", version.ref = "jacksson" }
+
+kotlin-reflect = { module = "org.jetbrains.kotlin:kotlin-reflect", version.ref = "kotlin" }
+
+postgresql = { module = "org.postgresql:postgresql", version.ref = "postgresql" }
+
+spring-boot-starter-test = { module = "org.springframework.boot:spring-boot-starter-test", version.ref = "spring-boot" }
