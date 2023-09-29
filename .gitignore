@@ -1,0 +1,6 @@
+# Gradle files
+build/
+.gradle
+
+# Spring boot credentials
+application.properties
