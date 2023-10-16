@@ -2,9 +2,7 @@ version: '1'
 
 services:
   app:
-    image: 'docker-spring-boot-postgres:latest'
-    build:
-      context: .
+    build: . # Builds image from Dockerfile
     container_name: app
     ports:
       - "8080:8080"
