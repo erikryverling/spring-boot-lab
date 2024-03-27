@@ -1,22 +1,23 @@
 package se.yverling.lab.springboot
 
 import org.springframework.web.bind.annotation.*
+import se.yverling.lab.springboot.model.Coffee
 
 @RestController
-class CoffeeController(val service: CoffeeService) {
-    @GetMapping("/coffee")
+class CoffeeController(val service: CoffeesService) {
+    @GetMapping("/coffees")
     fun getAll(): List<Coffee> = service.getAll()
 
-    @GetMapping("/coffee/{id}")
+    @GetMapping("/coffees/{id}")
     fun getById(@PathVariable id: String): List<Coffee> =
         service.getById(id)
 
-    @PostMapping("/coffee")
+    @PostMapping("/coffees")
     fun save(@RequestBody message: Coffee) {
         service.save(message)
     }
 
-    @DeleteMapping("/coffee/{id}")
+    @DeleteMapping("/coffees/{id}")
     fun delete(@PathVariable id: String) {
         service.delete(id)
     }
